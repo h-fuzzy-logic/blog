@@ -2,14 +2,14 @@
     <div class="container">
             {% for post in site.posts %}
             <div class="row mb-1">
-                <div class="col-2">
+                <div class="col-3">
                         {% if post.mainimageurl && post.mainimagealt %}
                             <img class="img-thumbnail" src="{{ site.baseurl }}{{ post.mainimageurl }}" alt="{{post.mainimagealt}}" />
                         {% else %}
                             <img class="img-thumbnail" src="{{ site.baseurl }}/img/default.png" alt="Default solid blue image" /> 
                         {% endif %}
                 </div>
-                <div class="col-10">
+                <div class="col-9">
                     <h2 class="h3"><u><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></u></h2>
                     <p class="mb-0">
                         {% if post.summary %}
