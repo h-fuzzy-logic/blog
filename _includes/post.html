@@ -1,0 +1,34 @@
+<div id="post" class="container pt-3">
+        <div class="row">
+          <div class="col">
+            <h2 class="h4 font-weight-bold">{{ page.title }}</h2>
+            <p class="mb-0">{{ page.summary }} </p>  
+            <p class="text-muted">{{ page.date | date: "%b %-d, %Y" }} 
+              <small class="text-muted"> Category:</small>
+                {% for category in page.categories %} 
+                    <span class="badge badge-secondary">{{ category }}</span>
+                {% endfor %}  
+            </p>
+          </div>  
+        </div>   
+        <div class="row">
+              <div class="col">
+                  {% if page.mainimageurl && page.mainimagealt %}
+                      <img class="img-fluid img-thumbnail" src="{{ site.baseurl }}{{ page.mainimageurl }}" alt="{{page.mainimagealt}}" />
+                      {% if page.mainimageattribution %}
+                        <p><small class="text-muted"><cite title="{{ page.mainimageattribution }}">{{ page.mainimageattribution }}</cite></small></p>
+                      {% endif %}
+                  {% else %}
+                      <img class="img-fluid img-thumbnail" src="../img/default.png" alt="Default solid blue image" /> 
+                  {% endif %}
+              </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col">
+            <article>
+              {{ content }}
+            </article>
+          </div>            
+        </div>
+      
+  </div>

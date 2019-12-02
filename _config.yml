@@ -1,0 +1,13 @@
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
+title: "Data Driven Developer" # the name of your site, e.g. ACME Corp.
+email:
+author:
+description:
+
+port: 4011
+
+# Build settings
+permalink: :title/
+sass:
+  sass_dir: _sass

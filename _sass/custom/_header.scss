@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+/*
+.navbar{
+    .nav-item{
+      font-size: 1.4rem;
+      padding-right: 20px;
+    }
+  }
+    */
+
+  .nav-link {
+    color: $white !important;
+  
+    &:hover {
+      color: $info !important;
+    }
+  }
+
+  a {text-decoration: underline;}
+
+  

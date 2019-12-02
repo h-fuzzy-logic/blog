@@ -1,0 +1,31 @@
+<section id="posts">
+    <div class="container">
+            {% for post in site.posts %}
+            <div class="row mb-1">
+                <div class="col-2">
+                        {% if post.mainimageurl && post.mainimagealt %}
+                            <img class="img-fluid img-thumbnail" src="{{ site.baseurl }}{{ post.mainimageurl }}" alt="{{post.mainimagealt}}" />
+                        {% else %}
+                            <img class="img-fluid img-thumbnail" src="../img/default.png" alt="Default solid blue image" /> 
+                        {% endif %}
+                </div>
+                <div class="col-10">
+                    <h2 class="h3"><u><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></u></h2>
+                    <p class="mb-0">
+                        {% if post.summary %}
+                            {{ post.summary }}
+                        {% else %}
+                            {{ post.excerpt }}
+                        {% endif %}  
+                    </p>
+                    <small class="text-muted"> Category:</small>
+                        {% for category in post.categories %} 
+                            <span class="badge badge-secondary">{{ category }}</span>
+                        {% endfor %}  
+                    
+                </div>
+            </div>
+            <br/>
+            {% endfor %}
+    </div>
+</section>
