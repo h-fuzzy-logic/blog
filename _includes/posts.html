@@ -4,9 +4,9 @@
             <div class="row mb-1">
                 <div class="col-2">
                         {% if post.mainimageurl && post.mainimagealt %}
-                            <img class="img-fluid img-thumbnail" src="{{ site.baseurl }}{{ post.mainimageurl }}" alt="{{post.mainimagealt}}" />
+                            <img class="img-thumbnail" src="{{ site.baseurl }}{{ post.mainimageurl }}" alt="{{post.mainimagealt}}" />
                         {% else %}
-                            <img class="img-fluid img-thumbnail" src="{{ site.baseurl }}/img/default.png" alt="Default solid blue image" /> 
+                            <img class="img-thumbnail" src="{{ site.baseurl }}/img/default.png" alt="Default solid blue image" /> 
                         {% endif %}
                 </div>
                 <div class="col-10">
