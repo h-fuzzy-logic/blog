@@ -3,7 +3,7 @@ layout: post
 title: Customizing CSS for Markdown cells in an R Notebook in Jupyter
 summary: Browser Developer Tools can help you find which CSS file to edit    
 categories: [How To, Jupyter]
-mainimageurl: "../img/2019-12-02-customizing-css-for-jupyter-notebooks-1.png"
+mainimageurl: "/img/2019-12-02-customizing-css-for-jupyter-notebooks-1.png"
 mainimagealt: "Developer Tools Network Tab"
 ---
 

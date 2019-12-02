@@ -1,6 +1,6 @@
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-baseurl: "" # the subpath of your site, e.g. /blog
-title: "Data Driven Developer" # the name of your site, e.g. ACME Corp.
+baseurl: "/blog" # the subpath of your site, e.g. /blog
+title: "Data Driven Developer 2" # the name of your site, e.g. ACME Corp.
 email:
 author:
 description:
