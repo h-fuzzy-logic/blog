@@ -3,7 +3,7 @@ baseurl: "/blog" # the subpath of your site, e.g. /blog
 title: "Data Driven Developer" # the name of your site, e.g. ACME Corp.
 email:
 author:
-description:
+description: How-tos, tips, and thoughts about the intersection of data science and software engineering. 
 
 port: 4011
 

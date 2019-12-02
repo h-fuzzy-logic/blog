@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Data Driven Developer"
+title: "Home"
 ---
 <br/>
 <div class="container text-center">
