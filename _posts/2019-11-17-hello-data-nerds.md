@@ -10,4 +10,4 @@ mainimageattribution: Photo by Maria Tyutina from Pexels
 
 <h1 class="h5">A Work in Progress</h1> 
 
-Stay tuned for how-tos, tips, and thoughts about the intersection of data science and software engineering.  
+Stay tuned for how-tos, tips, and thoughts about the intersection of data science and software engineering.  This space is my version of a workshop (a virtual one), where many projects are in progress and there is always work to be done.   Nothing will be perfect and everything is a work in progress.  A big thanks to Data Science Renee (@BecomingDataSci) for <a href="https://twitter.com/BecomingDataSci/status/1177648024870412288" target="_blank"> tweeing about this workshp idea. </a> 
