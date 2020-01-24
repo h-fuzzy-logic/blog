@@ -25,15 +25,15 @@ Imagine gigs and gigs of data captured for months as users tap through a mobile 
 
 <h1 class="h4">What are the challenges of working with this kind of data?</h1>
 <ul>
-	<li>Processing such a large amount of data take a lot of time cause out of memory errors. </li>
+	<li>Processing such a large amount of data take a lot of time and cause out of memory errors. </li>
 	<li>Because the data is structured in such a detailed way (i.e., a timestamp for each user event), it is hard to spot trends or patterns.</li>
-	<li>Becuase so many users are represented, it is difficult to know if calculations are "correct"</li>
+	<li>Becuase so many users are represented, it is difficult to know if calculations are "correct."</li>
 	<li>Parsing and understanding JSON data can be tricky.</li>
 </ul>
 Below are ideas and code samples for handling each challenge.
 
 
-<h1 class="h4">Reducing processing time and prevening memory errors</h1>
+<h1 class="h4">Reducing processing time and preventing memory errors</h1>
 Be mindful of which columns of data are needed for the task at hand.  For example, if answering the question "When do most users play," then only use the relevant columns (probably installation_id and timestamp in this data).  This might mean only reading in certain columns from the CSV file and/or dropping nonessential columns from dataframes.  
 
 When coding, be open to different ways to accomplish the task at hand.  For example, Python and Pandas provide many different ways add a column to a dataframe.  And over time frameworks added faster and faster functionality.  Be sure if you are using a Q & A site (like StackOverflow) to check the date on the accepted answer to make sure it is recent.  
@@ -46,7 +46,7 @@ df1 = df1.assign(e = <<new values>>)
 
 ```
 <h1 class="h4">Spotting trends and patterns</h1>
-Thinking about how one user interacts with the app is a good staring point and there are many different metrics that can be calculated per user with the Data Science Bowl data.  Popular usage times can be determined by analyzing the timestamp column to determine the most common days of the week or times of day that the app is used.  Event codes that represent user-initiated actions (such as starting an assessment, asking for help, skipping a tutorial, etc.) can be summed for each user.   Analyzing the location of mouse clicks can show what users find important.  By analyzing events in timestamp order, the user's path through the system can be seen.  Organizing the data by user can provide powerful information about how the most successful players use the app.  For an example of how to summarize event codes by user, see $$$
+Thinking about how one user interacts with the app is a good staring point and there are many different metrics that can be calculated per user with the Data Science Bowl data.  Popular usage times can be determined by analyzing the timestamp column to determine the most common days of the week or times of day that the app is used.  Event codes that represent user-initiated actions (such as starting an assessment, asking for help, skipping a tutorial, etc.) can be summed for each user.   Analyzing the location of mouse clicks can show what users find important.  By analyzing events in timestamp order, the user's path through the system can be seen. Organizing the data by user can provide powerful information about how the most successful players use the app. For an example of how to summarize event codes by user, see $$$
 $$ need image of data frame.  
 
 
