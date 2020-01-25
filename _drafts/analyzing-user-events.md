@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Making sense of user events 
-summary: Using Python to gain insight from detailed user event logs   
+summary: Using Python and Pandas to gain insight from detailed user event logs   
 categories: [Python, Pandas, Exploratory Data Analysis, EDA, User Events]
 mainimageurl: "/img/2019-12-02-customizing-css-for-jupyter-notebooks-1.png"
 mainimagealt: "Event data"
@@ -50,7 +50,7 @@ Thinking about how one user interacts with the app is a good staring point and t
 $$ need image of data frame.  
 
 <h1 class="h4">Finding errors and mistakes early and often</h1>
-One approach is to write code after each transformation or calculation that verifies the result matches the expectation from the raw data.  With the Data Science Bowl data, the test.csv file shows that game_session ```00097cda27afb726``` has 36 events. This can be quickly determined different ways: manually counting the events in the file; using the "Find" feature in a text tool (such as TextEdit) that shows the number of occurrences; writing code to calc the expected number as soon as the file is read into the development environment before any transformations.  Once the expectation is known, code can be written to show show when mismatches exist.  For examples $$$$   
+One approach is to write code after each transformation or calculation that verifies the result matches the expectation from the raw data.  With the Data Science Bowl data, the test.csv file shows that game_session <code class="font-italic">00097cda27afb726</code> has 36 events. This can be quickly determined different ways: manually counting the events in the file; using the "Find" feature in a text tool (such as TextEdit) that shows the number of occurrences; writing code to calc the expected number as soon as the file is read into the development environment and before any transformations.  Once the expectation is known, it can be compared with the actual value after each transformation or calculation.  Code can be written to show alerts for mismatches.  $$Using unique to see which values are in the column.  For examples $$$$   
 
 
 <h1 class="h4">Parsing JSON data</h1> 
