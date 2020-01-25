@@ -1,14 +1,15 @@
 ---
 layout: post
-title: Making sense of user events 
+title: Gaining insights from user-generated event data
 summary: Using Python and Pandas to gain insight from detailed user event logs   
 categories: [Python, Pandas, Exploratory Data Analysis, EDA, User Events]
-mainimageurl: "/img/2019-12-02-customizing-css-for-jupyter-notebooks-1.png"
+mainimageurl: "/img/2020-1-26-analyzing-user-events.jpg"
 mainimagealt: "Event data"
+mainimageattribution: "Photo by Vitaly Vlasov from Pexels"
 ---
 
 <h1 class="h4">Introduction</h1>
-Imagine gigs and gigs of data captured for months as users tap through a mobile app - timestamps, session ids, event codes, location in the app, and even the location of tap on the screen.   It can seem overwhelming to gain insights from this type of data, but that is the goal of the <a href="https://www.kaggle.com/c/data-science-bowl-2019/overview" target="_blank">2019 Data Science Bowl sponsored by Kaggle</a>.  The competition provided CSV files with these columns:
+Imagine gigs and gigs of data captured for months as users tap through a mobile app - timestamps, session ids, event codes, location in the app, and even the location of the tap on the screen.   It can seem overwhelming to gain insights from this type of data, but that is the goal of the <a href="https://www.kaggle.com/c/data-science-bowl-2019/overview" target="_blank">2019 Data Science Bowl sponsored by Kaggle</a>.  The competition provided CSV files with these columns:
 <ul>
 	<li>event_id</li>
 	<li>game_session</li>
@@ -56,4 +57,6 @@ One approach is to write code after each transformation or calculation that veri
 <h1 class="h4">Parsing JSON data</h1> 
 For background information about how JSON data is structured, visit <a href="https://www.json.org/json-en.html">JSON.org</a>.  Python provides functionality to handle JSON data.  The <a href="https://docs.python.org/3.7/library/json.html" target="_blank">loads method in the json module<a>  accepts a string (like the event_data column in the CSV file from the Data Science Bowl) and will return a Python object for easier manipulation.  Once the Python object is created, it is easier to find specific keys and values (such as correct is set to true).  For the Data Science Bowl, event_data column had to be used to determine if the user got the correct answer for an assessment.  For code samples see ####
  
+
+
 
