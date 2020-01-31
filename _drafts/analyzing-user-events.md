@@ -33,26 +33,44 @@ Imagine gigs and gigs of data captured for months as users tap through a mobile 
 </ul>
 Below are ideas and code samples for handling each challenge.
 
-
 <h1 class="h4">Reducing processing time and preventing memory errors</h1>
-Be mindful of which columns of data are needed for the task at hand.  For example, if answering the question "When do most users play," then only use the relevant columns (timestamp and possibly installation_id in this data).  This might mean only reading certain columns from the CSV file and/or dropping nonessential columns from dataframes.  
+<p class="ml-4"><text class="font-weight-bold">Be mindful of which columns of data are needed for the task at hand.</text> <br/> 
+For example, if answering the question "When do most users play," then only use the relevant columns (timestamp and possibly installation_id in this data).  This might mean only reading certain columns from the CSV file and/or dropping nonessential columns from dataframes.
+</p>
 
-When coding, be open to different ways to accomplish the task at hand.  For example, Python and Pandas provide many different ways add a column to a dataframe.  And over time frameworks added faster and faster functionality.  Be sure if you are using a Q & A site (like StackOverflow) to check the date on the accepted answer to make sure it is recent.  
-```Python
-#older to newer methods of adding a column to a dataframe
-df1['e'] = <<new values>>
-df1.loc[:,'e'] = <<new values>>
-df1 = df1.assign(e = <<new values>>)
-##insert and apply?
+<p class="ml-4"><text class="font-weight-bold">Be open to different ways to accomplish the task at hand and be sure you understand the impact of each operation. <br/> </text>
+For example, Pandas provides many different ways add a column to a dataframe.  Some of them create a new dataframe (leaving the original alone), while some do not create a new dataframe.  And over time frameworks added faster and faster functionality.  Be sure if you are using a Q & A site (like StackOverflow) to check the date on the accepted answer to make sure it is recent.  Consulting the documentation (such as <a href='https://pandas.pydata.org/docs/index.html'> Pandas docs</a>) can help too. 
+</p>
 
-```
+<pre class="ml-4">
+<code class="language-Python">
+#different ways to add a column to a dataframe
+df1['e'] = &lt;&lt;new values&gt;&gt;
+df1.loc[:,'e'] = &lt;&lt;new values&gt;&gt;
+df2 = df1.assign(e = &lt;&lt;new values&gt;&gt;)
+</code>
+</pre>
+
 <h1 class="h4">Spotting trends and patterns</h1>
-Thinking about how one user interacts with the app is a good staring point and there are many different metrics that can be calculated per user with the Data Science Bowl data.  Analyzing the timestamp column can pinpoint the most common days of the week or times of day that the app is used.  Summing event codes (that represent user-initiated actions such as starting an assessment, asking for help, skipping a tutorial, etc.) by user can show what actions are taken most often.   Analyzing the location of mouse clicks can show what users find important.  By analyzing events in timestamp order, the user's path through the system can be seen. Organizing and visualizing the data by user can provide powerful information about how the most successful players use the app. For an example of how to summarize event codes by user, see $$$
-$$ need image of data frame.  
+<p class="ml-4">
+<text class="font-weight-bold">Thinking about how one user interacts with the app is a good staring point. </text> There are many different metrics that can be calculated per user with the Data Science Bowl data.  Analyzing the timestamp column can pinpoint the most common days of the week or times of day that the app is used.  Summing event codes (that represent user-initiated actions such as starting an assessment, asking for help, skipping a tutorial, etc.) by user can show what actions are taken most often.  Analyzing the location of mouse clicks can show what users find important.  By analyzing events in timestamp order, the user's path through the system can be seen. Organizing and visualizing the data by user can provide powerful information about how the most successful players use the app. For an example of how to summarize event codes by user, see $$$
+</p>
+
+<div class="mb-4">
+	<img alt="Datafame of event summary" class="img-thumbnail" src="../img/EventSummary.png" />
+</div>  
 
 <h1 class="h4">Finding errors and mistakes early and often</h1>
-One approach is to write code after each transformation or calculation that verifies the result matches the expectation from the raw data.  With the Data Science Bowl data, the test.csv file shows that game_session <code class="font-italic">00097cda27afb726</code> has 36 events. This can be quickly determined different ways: manually counting the events in the file; using the "Find" feature in a text tool (such as TextEdit) that shows the number of occurrences; writing code to calc the expected number as soon as the file is read into the development environment and before any transformations.  Once the expectation is known, it can be compared with the actual value after each transformation or calculation.  Code can be written to show alerts for mismatches.  $$Using unique to see which values are in the column.  For examples $$$$   
 
+<p class="ml-4">
+<text class="font-weight-bold">One approach is to write code after each transformation or calculation that verifies the result matches the expectation from the raw data.</text>  With the Data Science Bowl data, the test.csv file shows that game_session <code class="font-italic">000326e9d4516dd0</code> has 301 events. The expected events can be determined several ways: 
+<ul>
+	<li>Manually counting the events in the file </li>
+	<li>Using the "Find" feature in a text tool (such as TextEdit) that shows the number of occurrences</li>
+	<li>Writing code to calc the expected number as soon as the file is read into the development environment and before any transformations</li>
+</ul>
+Once the expectation is known, it can be compared with the actual value after each transformation or calculation.  Code can be written to show alerts for mismatches.  $$Using unique to see which values are in the column.  For examples $$$$   
+</p>
 
 <h1 class="h4">Parsing JSON data</h1> 
 For background information about how JSON data is structured, visit <a href="https://www.json.org/json-en.html">JSON.org</a>.  Python provides functionality to handle JSON data.  The <a href="https://docs.python.org/3.7/library/json.html" target="_blank">loads method in the json module<a>  accepts a string (like the event_data column in the CSV file from the Data Science Bowl) and will return a Python object for easier manipulation.  Once the Python object is created, it is easier to find specific keys and values (such as correct is set to true).  For the Data Science Bowl, event_data column had to be used to determine if the user got the correct answer for an assessment.  For code samples see ####
