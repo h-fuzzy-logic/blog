@@ -3,10 +3,10 @@ layout: post
 title: Gaining insights from oodles of user-generated event data
 summary: Using Python and Pandas efficiently process detailed user event logs   
 categories: [Python, Pandas, Exploratory Data Analysis, EDA, User Events]
-mainimageurl: "/img/2020-1-26-analyzing-user-events.jpg"
+mainimageurl: "/img/2020-1-31-analyzing-user-events.jpg"
 mainimagealt: "Event data"
 mainimageattribution: "Photo by Vitaly Vlasov from Pexels"
-codeexamples: "https://github.com/"
+codeexamples: "https://github.com/h-fuzzy-logic/Python-Exploring-User-Generated-Events/blob/master/Exploring%20User%20Generated%20Events.ipynb"
 ---
 
 <h1 class="h4">Introduction</h1>
@@ -81,7 +81,6 @@ df2 = df1.assign(e = &lt;&lt;new values&gt;&gt;)
 <p class="ml-4">
 <text class="font-weight-bold">Get comfortable with JSON.</text>
 The Data Science Bowl data presents event details in JSON format and Python provides functionality to handle JSON data.  The <a href="https://docs.python.org/3.7/library/json.html" target="_blank">loads method in the json module<a>  accepts a string (like the event_data column in the CSV file from the Data Science Bowl) and will return a Python object for easier manipulation.  Once the Python object is created, it is easier to find specific keys and values (such as <code class="font-italic">correct</code> is set to <code class="font-italic">true</code>).  For the Data Science Bowl, event_data column had to be used to determine if the user got the correct answer for an assessment.  For background information about how JSON data is structured, visit <a href="https://www.json.org/json-en.html">JSON.org</a>.  Check out this <a href="{{ page.codeexamples }}" target="_blank"> Jupyter notebook</a> for examples of how to handle the event_data column from the Data Science Bowl.
-</p>
 
 
 
