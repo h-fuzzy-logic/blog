@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Gaining insights from oodles of user-generated event data
-summary: Using Python and Pandas efficiently process detailed user event logs   
-categories: [Python, Pandas, Exploratory Data Analysis, EDA, User Events]
+title: Tips for wrangling user generated events
+summary: Using Python and Pandas to efficiently process user event logs that include JSON formatted data   
+categories: [Python, Pandas, User Events]
 mainimageurl: "/img/2020-1-31-analyzing-user-events.jpg"
 mainimagealt: "Event data"
 mainimageattribution: "Photo by Vitaly Vlasov from Pexels"
