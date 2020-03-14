@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Key Features of Visual Studio Code
-summary: Tips to make the most of Visual Studio Code   
+summary: Tips to make the most of Visual Studio Code
+date: 2020-3-14 00:10:00   
 categories: [Development, IDE]
 mainimageurl: "/img/code.jpg"
 mainimagealt: "Code"
