@@ -21,9 +21,9 @@ For a while now, I have been wanting to contribute to an open source project so 
   * Docker, with a docker-compose with three services: application, database, and front end
   * The application was set to run on one port (8000)
 * Was able to use docker-command to manually build the container, run the application, and add test data using the command line
-* Worked on this during March 2020, used Visual Studio Code version 1.43.0, on macOS Mojave
+* Worked on this during March 2020, with Visual Studio Code version 1.43.0, on macOS Mojave
 
-<h1 class="h4">How Visual Studio Code can help</h1>
+<h1 class="h4">How Visual Studio Code can help with the development process</h1>
 * Build the Docker container and run the application, as specified by the docker-compose.yml 
 * Attach to the source code in the container (to allow code edits)
 * Debug services in the container (on a port different from 8000, which is where the application was running)
@@ -31,9 +31,10 @@ For a while now, I have been wanting to contribute to an open source project so 
 <h1 class="h4">Overview of files to add in Visual Studio Code</h1>
 * docker-compose.override.yml file to let the application run on a second port (3000)
   * This approach keeps the open source repo from being altered and gives me the freedom to work how I want to work, regardless of the preferences of the other contributors.  
-* devcontainer.json file to specify the two docker-compose files to use plus any Visual Studio extensions to install on the container
+* devcontainer.json file to specify **bridge the gap?** the two docker-compose files to use plus any Visual Studio extensions to install on the container.  
   * The two docker-compose files are 1) the original one from the open source project and 2) the override yml I added
   * The container needs the "ms-python.python" extension and specifying it in the devcontainer.json file gives me the freedom to work with Visual Studio Code instead of forcing everyone else to do the same
+
 * launch.json file to specify the debug configuration
 
 The following instructions assume:
