@@ -11,53 +11,57 @@ mainimageattribution: "Photo by Markus Spiske from Pexels"
 
 <h1 class="h4">Introduction</h1>
 <p>
-For a while now, I have been wanting to contribute to an open source project so that I could get more experience with Django and Python.  I finally found an opportunity and was excited to see that I would also have the opportunity to use Docker for the first time.  The  project had very detailed directions and I was able to run the site and access it in my browser in no time.  Then I started thinking about debugging and how I could set breakpoints to more quickly learn how the project worked.  The developer instructions explained how to use The Python Debugger (pdb), which is a command line debugger.  I have never used a command line debugger before, and it seemed like a steep learning curve.  Because I was already learning several other technologies with this project, I decided to see if I could use Visual Studio Code to debug since it has a GUI debugger and supports debugging Docker containers. 
+For a while now, I have been wanting to contribute to an open source project so that I could get more experience with Django and Python.  I finally found an opportunity and was excited to see that I would also have the opportunity to use Docker for the first time.  The  project had very detailed directions and I was able to run the site and access it in my browser in no time.  Then I started thinking about debugging and how I could set breakpoints to more quickly learn how the project worked.  The developer instructions explained how to use The Python Debugger (pdb), which is a command line debugger.  I have never used a command line debugger before, and it seemed like a steep learning curve.  Because I was already learning several other technologies with this project, I decided to try to use Visual Studio Code to debug since it has a GUI debugger and supports debugging Docker containers. 
  
 </p>
 
-<h1 class="h4">The details</h1>
+<h1 class="h4">Details</h1>
 * Got existing source code from Github
-* Node front-end, Python, Django, Postgres database
-* Docker, with a docker-compose with three services: application, database, and front end
-* The application was set to run on port 8000
-* March 2020, Visual Studio Code version 1.43.0, running on macOS Mojave
-* Was able to follow the instructions in the repo and use docker-command to manually build the container, run the application, and add test data
+  * Node front-end, Python, Django, Postgres database
+  * Docker, with a docker-compose with three services: application, database, and front end
+  * The application was set to run on one port (8000)
+* Was able to use docker-command to manually build the container, run the application, and add test data using the command line
+* Worked on this during March 2020, used Visual Studio Code version 1.43.0, on macOS Mojave
 
 <h1 class="h4">How Visual Studio Code can help</h1>
-* Building the Docker container and running the application, as specified by the docker-compose.yml 
-* Attaching to the code in the container (to allow code edits)
-* Debugging on the container (on a port different from 8000, which is where the application was running)
+* Build the Docker container and run the application, as specified by the docker-compose.yml 
+* Attach to the source code in the container (to allow code edits)
+* Debug services in the container (on a port different from 8000, which is where the application was running)
 
-<h1 class="h4">How Visual Studio Code requirements</h1>
+<h1 class="h4">Visual Studio Code requirements</h1>
 * docker-compose.override.yml file to let the application run on a second port (3000)
   * This approach keeps the open source repo from being altered and gives me the freedom to work how I want to work, regardless of the preferences of the other contributors.  
 * devcontainer.json file to specify the two docker-compose files to use plus any Visual Studio extensions to install on the container
   * The two docker-compose files are 1) the original one from the open source project and 2) the override yml I added
   * The container needs the "ms-python.python" extension and specifying it in the devcontainer.json file gives me the freedom to work with Visual Studio Code instead of forcing everyone else to do the same
+* launch.json file to specify the debug configuration
 
-<p> Note: The following instructions assume an understanding of 
-* Visual Studio Code workspaces (aka a .code-workspace file), 
-* the Command Palette and 
-* Docker extension ("ms-azuretools.vscode-docker") is installed on your local machine. 
-* Understand how to debug Python in VS (adding debug configuations)
-* The code is on your local machine, and a workspace file pointing to it. 
-</p>
+The following instructions assume:
+* Familiarity with Visual Studio Code:
+  * An understanding of workspaces (a .code-workspace file) and the Command Palette
+  * How to install extensions, specifically the Docker extension ("ms-azuretools.vscode-docker") and the Microsoft Python extension "ms-python.python" 
+  * How to set the Python interpreter
+  * How to debug Python by adding a debug configuation
+* The source code is on your local machine, with a .code-workspace file pointing to it. 
+* The workspace is open
 
-<h1 class="h4">Creating devcontainer.json in the local repo</h1> 
-To add one to your workspace using the Command Palette, 
-* Start typing devcontainer and you should see an option to add one.  (Note: The actual command is “Add Development Container Configuration Files”)
-* Click the add option and then select docker-compose.yml to get a default one.  
-* Verify the devcontainer.json file is located in .devcontainer (Create .devcontainer if needed and move the .json file there.) 
-
-The generated devcontainer.json file will probably need to be adjusted.  Be sure that the service name it matches the service name in the docker-compose file.  In my case, I needed to set the service name to "app" (since that was specified in the docker-compose) and include an extension:
+<h1 class="h4">Add devcontainer.json to the workspace using the Command Palette</h1>  
+* Start typing devcontainer in the Command Palette to find the command and you should see an option "Add Development Container Configuration Files"
+* Click the option and then select docker-compose.yml so a default file can be created  
+* Verify the devcontainer.json file is located in .devcontainer 
+  * Create .devcontainer if needed and move the .json file there.
+* Adjust the devcontainer.json file as needed 
+  * Be sure that the service name it matches the service name in the docker-compose file.  In my case, 1) the service name needed to be changed to "app" (since that was specified in the docker-compose) and 2) an extension needed to to be included included: 
 <pre class="ml-4">
 <code class="language-Python">
+...
 "service": "app",
 "extensions": ["ms-python.python"]
+...
 </code>
 </pre>
 
-<h1 class="h4">Add docker-compose.override.yml to the local repo</h1> 
+<h1 class="h4">Add docker-compose.override.yml to the workspace</h1> 
 * Manually add a new docker-compose.override.yml file to .devcontainer (so that now it has two files, the .json file and the .yml file): 
 <pre class="ml-4">
 <code class="language-Python">
@@ -66,29 +70,33 @@ app:
     - "3000:3000"
 </code>
 </pre>
-Note: "app" is specified in the original docker-compose
+Again, "app" is specified in the original docker-compose.
 
-At this point, you should be able to launch the Docker container and attach Visual Studio Code to it: 
+The next steps explain how to build and start the Docker container and attach Visual Studio Code to container to access the source code and application running inside the container. 
 
 <h1 class="h4">Using devcontainer.json to launch the Docker container</h1>  
 * Command Palette - Remote-Containers: Open container cofiguration file
 * See notification in the lower right hand corner of VS and click the button: Reopen in Container
 * Watch the lower right for the notification about installing Dev Container
-* Visual Studio Code's Terminal tab will be active and will give you access to the container 
-  * Try different commands like <code>uname -a</code> to find the Linux version
+* Visual Studio Code's Terminal tab will be active and will give you access to the container.  Try different commands: 
+  * To find the Linux version: <code>uname -a</code> 
+  * To run migrations: python <code>manage.py migrate</code>
+  * Any other commands required by the application: <code>python manage.py ...</code>
+* Verify that the Python extension is installed in the container by checking the Extensions view
 
 <h1 class="h4">Attach Visual Studio Code to the running container</h1> 
-In the Docker extension (the whale icon), find the running service.  Right-click and choose "Attach Visual Studio Code" which will launch a new window.  In the lower left hand corner, there should be a green area showing the connection to the container.  
+From the Docker extension (the whale icon), find the running application/service.  Right-click and choose "Attach Visual Studio Code" which will launch a new window.  In the lower left hand corner of the new window, there should be a green area showing name of the connected container.  If you get a notification about “No Python interpreter is selected” choose one.  You will see that the only choices are Python versions installed on <b>container</b>. 
 
-NEW SECTION?  PRE-REQS? 
+<h1 class="h4">Create the debug configuration</h1> 
+Within the Debug view in Visual Studio Code:
+* Click the “Create a launch.json file” 
+* Select Django 
+* Verify the resulting file has “django” set to true   
+* Change the "name" if desired
+* Be sure the "args" specify the debug port (3000)
 
-<h1 class="h4">Create debug configuration</h1> 
-Verify the Python extension is installed in the container
-If you get a notification about “No Python interpreter is selected” choose one via the Notification.  You will see that the only choices are python versions installed on container.  
-
-Go to the Debug tab in VS.  Click the “create a launch.json file.” Select Django. The result is a default file with “django” set to true.   You can change the name if needed and save the file. 
-
-<code>
+The file should be similar to: 
+```
 {
     "version": "0.2.0",
     "configurations": [
@@ -107,8 +115,20 @@ Go to the Debug tab in VS.  Click the “create a launch.json file.” Select Dj
         },
     ]
 }
-</code>
+```
 
+<h1 class="h4">Start debugging</h1> 
+Set a breakpoint in a .py file.  Back in the Debug view, select the newly created configuration and click the green arrow to start debugging.  Alternatively, press F5 to start the debugger.  In your favorite browser, browse to http://localhost:3000 and start clicking around to fire the code marked with the breakpoint.   
+
+<h1 class="h4">Summary</h1> 
+It took some time to figure out how to get this working, but I think it will help me in the long run.  My biggest challenges were:
+* Understanding how Visual Studio Code interacts with containers - that it can help launch the container and then provide access to the code in the container and service running in the container
+* Getting the debugger to launch the app on a second port without changing the docker-compose.yml file from the open source repo
+
+These links were very helpful during my adventure in March 2020:
+* <a href="https://docs.docker.com/compose/extends/#multiple-compose-files" target="_blank">Multiple Docker Compose Files</a>
+* <a href="https://code.visualstudio.com/docs/remote/containers#_attaching-to-running-containers" target="_blank">Attaching to Running Containers with Visual Studio Code</a>
+* <a href="https://www.youtube.com/watch?v=eUitxqLxICo" target="_blank">Building Python Web Applications with Visual Studio Code Docker and Azure</a> (especially starting at the 24-minute mark)
 
 Happy debugging!
     
