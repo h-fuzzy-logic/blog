@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Debugging a Docker Container with Visual Studio Code
+title: Debugging an application running in Docker with Visual Studio Code
 summary: Steps to debug a Node-Python-Django-Postgres website running in Docker on localhost
-date: 2020-3-14 00:50:00   
+date: 2020-3-15 00:50:00   
 categories: [Development, Docker, Python]
 mainimageurl: "/img/debugger.png"
 mainimagealt: "Debugger"
