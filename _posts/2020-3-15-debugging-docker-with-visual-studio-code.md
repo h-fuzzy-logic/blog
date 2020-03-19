@@ -4,7 +4,7 @@ title: Setup Visual Studio Code to Debug an Application in Docker
 summary: Steps to enable debugging for a Node-Python-Django-Postgres website running in Docker on localhost
 date: 2020-3-15 00:50:00   
 categories: [Development, Docker, Python]
-mainimageurl: "/img/debugger.png"
+mainimageurl: "/img/debugger2.png"
 mainimagealt: "Debugger"
 mainimageattribution: "Visual Studio Code Debugger"
 ---

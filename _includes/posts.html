@@ -1,31 +1,31 @@
 <section id="posts">
     <div class="container">
             {% for post in site.posts %}
-            <div class="row mb-1">
-                <div class="col-3">
-                        {% if post.mainimageurl && post.mainimagealt %}
-                            <img class="img-thumbnail" src="{{ site.baseurl }}{{ post.mainimageurl }}" alt="{{post.mainimagealt}}" />
-                        {% else %}
-                            <img class="img-thumbnail" src="{{ site.baseurl }}/img/default.png" alt="Default solid blue image" /> 
-                        {% endif %}
+                <div class="card mb-3" style="max-width: 620px;" >
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            {% if post.mainimageurl && post.mainimagealt %}
+                                <img class="card-img" src="{{ site.baseurl }}{{ post.mainimageurl }}" alt="{{post.mainimagealt}}" />
+                            {% else %}
+                                <img class="card-img" src="{{ site.baseurl }}/img/default.png" alt="Default solid blue image" />
+                            {% endif %}
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <div>
+                                    <h2 class="h6 card-title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
+                                    <p class="card-text">
+                                        {% if post.summary %}
+                                            {{ post.summary }}
+                                        {% else %}
+                                            {{ post.excerpt }}
+                                        {% endif %} 
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-9">
-                    <h2 class="h4"><u><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></u></h2>
-                    <p class="mb-0">
-                        {% if post.summary %}
-                            {{ post.summary }}
-                        {% else %}
-                            {{ post.excerpt }}
-                        {% endif %}  
-                    </p>
-                    <small class="text-muted"> Category:</small>
-                        {% for category in post.categories %} 
-                            <span class="badge badge-secondary">{{ category }}</span>
-                        {% endfor %}  
-                    
-                </div>
-            </div>
-            <br/>
             {% endfor %}
     </div>
 </section>

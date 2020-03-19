@@ -3,7 +3,7 @@ layout: post
 title: Being Pythonic - List Comprehensions to Create Lists
 summary: Using list comprehensions can increase performance and readability   
 categories: [Python, Being Pythonic, List Comprehension]
-mainimageurl: "/img/python-large.png"
+mainimageurl: "/img/python2.png"
 mainimagealt: "Python logo"
 mainimageattribution: "Image from Python Software Foundation"
 ---
