@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Setup Visual Studio Code to Debug an Application in Docker
-summary: Steps to enable debugging for a Node-Python-Django-Postgres website running in Docker on localhost
+summary: Steps to enable debugging for a Python-Django-Postgres website running in Docker on localhost
 date: 2020-3-15 00:50:00   
 categories: [Development, Docker, Python]
 mainimageurl: "/img/debugger2.png"
@@ -17,7 +17,7 @@ For a while now, I have been wanting to contribute to an open source project so 
 
 <h1 class="h4">Details</h1>
 * Got existing source code from Github
-  * Node front-end, Python, Django, Postgres database
+  * Sass, Python, Django, Postgres database
   * Docker, with a docker-compose.yml with three services: front end, application, and database
   * The application was set to run on localhost on one port (8000)
 * Was able to use docker-command at the command line to manually build the container, run the application, and add test data
