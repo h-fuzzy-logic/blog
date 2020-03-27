@@ -18,28 +18,28 @@ Plotting the model will give diagnostics to uncover common problems such as assu
 
 <h1 class="h4">Plot - Residuals vs. Fitted</h1>
 This plot can help detect if a non-linear relationship was overlooked.  If the model is a good fit, the plot will have no distinct patterns.
-<div class="row">
+<div class="row mb-2">
 	<div class="col-6">test</div>
 	<div class="col-6">test</div>
 </div>
 
 <h1 class="h4">Plot Details - Normal Q-Q</h1>
 This plot verifies the distribution of the residiuals.  Expecting normally distributed residuals if the model is a good fit.
-<div class="row">
+<div class="row mb-2">
 	<div class="col-6">test</div>
 	<div class="col-6">test</div>
 </div>
 
 <h1 class="h4">Plot Details - Scale-Location</h1>
 checks the variance of the residuals.  Expecting equally spread points if the model is a good fit.
-<div class="row">
+<div class="row mb-2">
 	<div class="col-6">test</div>
 	<div class="col-6">test</div>
 </div>
 
 <h1 class="h4">Plot Details - SResiduals vs. Leverage</h1>
 uncovers influential cases (outliers).  If outliers are detected, they may need to be removed so the anaylsis can be run again with out them.
-<div class="row">
+<div class="row mb-2">
 	<div class="col-6">test</div>
 	<div class="col-6">test</div>
 </div>
