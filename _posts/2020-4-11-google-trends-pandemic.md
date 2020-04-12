@@ -11,7 +11,7 @@ mainimageattribution: "Customized viz of Google Trends data created with Tableau
 
 <h1 class="h4">Introduction</h1>
 <p>
-<a href="https://trends.google.com/trends/?geo=US" target="_blank">Google Trends</a> shows worldwide interest of search terms over time in different Google sources: web, image, news, Google Shopping, and YouTube.  To get started using the tool, some up-front brainstorming is needed to create an initial list of search terms for comparison.  After comparing the initial list, Google Trends provides suggestions which can be added to the comparison list or may spawn new ideas.
+<a href="https://trends.google.com/trends/?geo=US" target="_blank">Google Trends</a> shows worldwide interest of search terms over time in different Google collections: web, image, news, Google Shopping, and YouTube.  To get started using the tool, some up-front brainstorming is needed to create an initial list of search terms for comparison.  After comparing the initial list, Google Trends provides suggestions which can be added to the comparison list or may spawn new ideas.
 </p>
 
 <h1 class="h4">How the trend data is presented</h1>
