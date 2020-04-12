@@ -3,7 +3,7 @@ layout: post
 title: How are Google users in the US searching about the pandemic?
 summary: Exploring Google Trends data to understand the language people are using about the pandemic
 date: 2020-4-11 00:50:00   
-categories: [Data]
+categories: [Data, Tableau Public]
 mainimageurl: "/img/google-trends-pandemic.png"
 mainimagealt: "Google Trends plot"
 mainimageattribution: "Customized viz of Google Trends data created with Tableau Public"
