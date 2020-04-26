@@ -3,10 +3,11 @@ layout: post
 title: Building intuition about user generated events to drive decisions about which features to engineer
 summary: Lessons learned from trying to understand a "typical" user in the data from Kaggle’s 2019 Data Science Bowl
 date: 2020-4-24   
-categories: [EDA, User Events]
+categories: [EDA, User Events, Python]
 mainimageurl: "/img/neon-party.jpg"
 mainimagealt: "Crowded neon party"
 mainimageattribution: "Photo by Marcin Dampc from Pexels"
+codeexamples: "https://github.com/h-fuzzy-logic/Python-Visualizing-User-Events-By-Session/blob/master/Visualizing%20User%20Events%20By%20Session.ipynb"
 ---
 
 <h1 class="h4">Introduction</h1>
@@ -41,6 +42,9 @@ Initially exploring the data from a single user perspective can help generate id
 * Viewing Clips, Activities, or Games prior to taking an Assessment  
 * Time gaps between viewing a Clip, Activity, or Game and taking an Assessment 
 * Length of each session
+
+<h1 class="h4">Closing</h1> 
+Check out this <a href="{{ page.codeexamples }}" target="_blank"> Jupyter notebook</a> for ideas about wrangling and visualizing using Python, Pandas, and Seaborn.
 
 Happy Exploring!
 
