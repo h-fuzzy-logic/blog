@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Building intuition about user generated events to drive decisions about which features to engineer
-summary: Lessons learned from trying to understand a "typical" user in the data from Kaggle’s 2019 Data Science Bowl
+title: Exploratory data analysis of user generated events
+summary: Focusing on a few users can offer clues about the "typical" user and guide decisions about features
 date: 2020-4-24   
 categories: [EDA, User Events, Python]
 mainimageurl: "/img/neon-party.jpg"
