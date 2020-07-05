@@ -2,7 +2,7 @@
 layout: post
 title: So much to read, so little time
 summary: Using natural language processing to understand awards from the National Science Foundation
-date: 2020-07-02  
+date: 2020-07-05  
 categories: [Python, NLP, NLTK, nGrams, LSA]
 mainimageurl: "/img/books.jpg"
 mainimagealt: "Books on shelf"
@@ -11,39 +11,34 @@ codeexamples: "https://github.com/h-fuzzy-logic/R---Are-spring-like-temperatures
 ---
 
 <h1 class="h4">Introduction</h1>
-Natural language processing (NLP) can help make sense of large volumes of data, when the large amount of data prevents a person from reading it.  This post focuses on making sense of textual award data from the National Science Foundation.  
+Natural language processing (NLP) can help make sense of large volumes of data, when there is too much data for a person to read.  This post focuses on making sense of textual award data from the National Science Foundation.  
  
 <h1 class="h4">Reason for analysis</h1>
-Writing a proposal for a NSF award can be time consuming and the review process can seem mysterious.  To increase the chances of writing a winning proposal, natural language processing can uncover which phrases and topics have received funding.   It is also possible to determine if larger award amounts tend to be associated with certain words, phrases, and topics.  With this goal in mind, below are some insights about the NSF awards from 2019.  
+Writing a proposal for an NSF award can be time consuming and the review process can seem mysterious.  To increase the chances of writing a winning proposal, natural language processing can uncover which phrases and topics have received funding.   It is also possible to determine if larger award amounts tend to be associated with certain words, phrases, and topics.  With this goal in mind, below are some insights about the NSF awards from 2019.  
 
-<h1 class="h4">Data Details</h1>
-The National Science Foundation has its award data from 1966 - 2019 available for <a href="https://www.nsf.gov/awardsearch/download.jsp" target="_blank">download</a>.  The files are in XML format and contain information about each award such as title, abstract, dollar amount, and information about the institution receiving the award.  These award summaries are written by NSF staff and are publicly available but the submitted proposals are confidential.  The XML was transformed to a CSV file for analysis.  
+<h1 class="h4">Data details</h1>
+The National Science Foundation has its award data from 1966 - 2019 available for <a href="https://www.nsf.gov/awardsearch/download.jsp" target="_blank">download</a>.  The files are in XML format and contain information about each award such as title, abstract, dollar amount, and information about the institution receiving the award.  The XML was transformed to a CSV file for analysis.  These award summaries are written by NSF staff and are publicly available, but the submitted proposals are confidential.    
 
-
-<h1 class="h4">Background information about the NSF and impacts on the analysis</h1>
-Awards are granted by Directorate and some examples of Directorates are:  Biological Sciences; Computer and Information Science and Engineering; Mathematical and Physical Sciences.  The <a href="https://www.nsf.gov/about/research_areas.jsp" target="_blank">full list</a> is publicly available.  Due to the structure created by having Directorates, the analysis will be done at the Directorate level.   
-
+<h1 class="h4">NSF organizational structure and the impact on the analysis</h1>
+Awards are granted by Directorate and some examples of Directorates are:  Biological Sciences; Computer and Information Science and Engineering; Mathematical and Physical Sciences.  The <a href="https://www.nsf.gov/about/research_areas.jsp" target="_blank">full list</a> is publicly available.  Due to the structure created by having Directorates, this analysis will be done at the Directorate level.   
 
 <h1 class="h4">General considerations when analyzing text data</h1>
 <ul>
 	<li> Understand the source of the text and how it was collected.</li>
-	<li> Spend timeSpend time just looking at the raw data before loading it into your tools.</li>
-	<li> Be mindful that most text has punctuation and undesirable characters that need to be removed before anaylsis such as brackets, commas, parenthesis. </li>
-
+	<li> Spend time just looking at the raw data before loading it into your tools.</li>
+	<li> Be mindful that most text has punctuation and undesirable characters such as brackets, commas, parenthesis that need to be removed before anaylsis. </li>
 </ul>
 
-<h1 class="h4">NLP techniques</h1>
-This analysis uses the Natural Language Toolkit.  Common words, bigrams (phrases with two words), and trigrams (phrases with three words) are uncovered by splitting the abstract title and abstract text into words (tokenizing) and counting the occurrences.  Additionally, with some matrix math, topics are uncovered using Latent Semantic Analysis (LSA) with a single value decomposition (SVD).    The full code is available in this <a href="{{ page.codeexamples }}" target="_blank"> Jupyter notebook</a>.  
+<h1 class="h4">NLP techniques used</h1>
+Common words, bigrams (phrases with two words), and trigrams (phrases with three words) are uncovered by splitting the abstract title and abstract text into words (tokenizing) and counting the occurrences.  Additionally, topics are uncovered using Latent Semantic Analysis (LSA).  This analysis uses the <a href="https://www.nltk.org/" target="_blank">Natural Language Toolkit</a> for ngram processing, <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html" target="_blank">scikit-learn's TruncatedSVD transformer</a> to uncover topics, and the full code is available in this <a href="{{ page.codeexamples }}" target="_blank"> Jupyter notebook</a>.  The notebook contains more details about decisions made during the analysis.  The conclusion of this blog post has additional resources to explain these techniques.  
 
-<h1 class="h4">Description of Analysis</h1>
-I decided to deep dive into the Directorate Direct For Computer & Information Science & Engineering since my background is in computer science.  The mean Award Amount was calculated and the awards were divided into two groups by Award Amount: above average and below average.  For the two groups, the top twenty-five individual words, bigrams, and trigrams were determined for the Award Title and Award Abstract.  Additionally, the top 5 topics were uncovered for each group. 
+<h1 class="h4">Description of analysis</h1>
+I decided to deep dive into the Directorate Direct For Computer & Information Science & Engineering since my background is in computer science.  The mean Award Amount was calculated and the awards were divided into two groups by Award Amount: above average and below average.  For the two groups, the top twenty-five individual words, bigrams, and trigrams were determined for the Award Title and Award Abstract.  Additionally, the top 5 topics were uncovered for each group.
 
-<img src="{{ site.baseurl }}/img/middle-spring.png" class="img-fluid" alt="User 1 session summary"/>
+<h1 class="h4">Results of analysis</h1>
+Overall, the word/phrase occurrences between the above average and below average group are very similar and <a href="{{ site.baseurl }}/img/NSF-comparison.png" target="_blank">this image</a> shows the similarities.  The most common word in the Abstracts in both groups is **data**.  The word **collaborative** appears often in the titles, and I am surprised to see it so often because computer-and-math-types have the reputation for being introverted and preferring to working alone.  Acronyms (such as **satc**, **satc**, **shf**, **sch**, and **cns**) appear often in the titles and I had to do some googling to figure out that the acronyms indicate the Division within the Directorate.   For example, **CNS** stands for Division of Computer and Network Systems.  The Abstract bigrams and trigrams seem to show the benefits of the Award with phrases like: **intellectual merit**, **broader impacts**, **nsf statutory mission**.
 
-<h1 class="h4">Description of Analysis</h1>
-Overall, the word/phrase occurrences between the above average and below average group are very similar.  The most common word in the Abstracts in both groups is **data**.  The word **collaborative** appears often in the titles and I am surprised to see it so often because computer-and-math-types have the reputation for being introverted and preferring to working alone.  Acronyms (such as **satc**, **satc**, **shf**, **sch**, and **cns**) appear often in the titles and I had to do some googling to figure out that the acronyms indicate the Division within the Directorate.   For example, **CNS** stands for Division of Computer and Network Systems.  The Abstract bigrams and trigrams seem to show the benefits of the Award with phrases like: **intellectual merit**, **broader impacts**, **nsf statutory mission**.
-
-Seeing the word occurrences this way, I am not able to understand the common technical topics in the Awards.  Topic modeling uncovers the five concepts and their associated topics.  Note that I assigned a concept title after interpreting the topics.
+Seeing the most common word occurrences this way, I am not able to understand the common technical topics in the Awards.  Next, I try topic modeling to uncover the five concepts and their associated topics.  Note that I assigned a concept title after interpreting the topics.
 
 These are the concepts for the above average Award Amounts:
 1. Teaching data science: data, science, learning, systems, data science, new, students, algorithms, software, models
@@ -63,9 +58,9 @@ To decide on some of the concept titles, I had to check the data file and do som
 * Holyoke is a city in Massachusetts, USA.  
 * The word prism refers to 1)  “Predictive Risk Investigation SysteM” and 2) the geometric figure
 
-
 <h1 class="h4">Ideas for further investigation</h1>
-Thinking about helping those applying for an Award, this analysis prompted more questions:
+Thinking about how to provide useful information to those applying for an Award, this analysis prompted more questions:
+* Does adding stopwords such as **statutory**, **mission**, and **intellectual** make the Abstract nGram analysis more helpful? 
 * How do the Awards vary by Directorate?  Can text analysis be used to decide which Directorate to target? 
 * Can text analysis uncover trends over time?
 * Do the topics become more distinct depending on the Award Type (Standard Grant vs Continuing Grant)? 
