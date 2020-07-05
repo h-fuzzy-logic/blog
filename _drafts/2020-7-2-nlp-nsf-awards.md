@@ -62,9 +62,10 @@ To decide on some of the concept titles, I had to check the data file and do som
 Thinking about how to provide useful information to those applying for an Award, this analysis prompted more questions:
 * Does adding stopwords such as **statutory**, **mission**, and **intellectual** make the Abstract nGram analysis more helpful? 
 * How do the Awards vary by Directorate?  Can text analysis be used to decide which Directorate to target? 
-* Can text analysis uncover trends over time?
+* How do the results change when calculating the average of Initial Award Amount and Award Amount?
 * Do the topics become more distinct depending on the Award Type (Standard Grant vs Continuing Grant)? 
 * What is going on in Holyoke, MA that has made it so prominent in NSF Awards in 2019? 
+* Can text analysis uncover trends over time, perhaps finding the trending concepts in 2019? 
 
 <h1 class="h4">Conclusion</h1> 
 Check out this <a href="{{ page.codeexamples }}" target="_blank"> Jupyter notebook</a> for the code. These resources were espeically helpful to me:
