@@ -1,13 +1,13 @@
 ---
 layout: post
 title: So much to read, so little time
-summary: Using natural language processing to understand awards from the National Science Foundation
+summary: Using natural language processing to find concepts and themes in National Science Foundation awards
 date: 2020-07-05  
 categories: [Python, NLP, NLTK, nGrams, LSA]
 mainimageurl: "/img/books.jpg"
 mainimagealt: "Books on shelf"
 mainimageattribution: "Photo by Element5 Digital from Pexels"
-codeexamples: "https://github.com/h-fuzzy-logic/R---Are-spring-like-temperatures-disappearing/blob/master/Analyzing%20110%20Years%20of%20NOAA%20Weather%20Station%20Data.ipynb"
+codeexamples: "https://github.com/h-fuzzy-logic/Python-Finding-NSF-Award-Themes/blob/trunk/NSF%20Awards%20NLP%20Analysis.ipynb"
 ---
 
 <h1 class="h4">Introduction</h1>
@@ -26,11 +26,11 @@ Awards are granted by Directorate and some examples of Directorates are:  Biolog
 <ul>
 	<li> Understand the source of the text and how it was collected.</li>
 	<li> Spend time just looking at the raw data before loading it into your tools.</li>
-	<li> Be mindful that most text has punctuation and undesirable characters such as brackets, commas, parenthesis that need to be removed before anaylsis. </li>
+	<li> Be mindful that most text has punctuation and undesirable characters such as brackets, commas, parenthesis that need to be removed before analysis. </li>
 </ul>
 
 <h1 class="h4">NLP techniques used</h1>
-Common words, bigrams (phrases with two words), and trigrams (phrases with three words) are uncovered by splitting the abstract title and abstract text into words (tokenizing) and counting the occurrences.  Additionally, topics are uncovered using Latent Semantic Analysis (LSA).  This analysis uses the <a href="https://www.nltk.org/" target="_blank">Natural Language Toolkit</a> for ngram processing, <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html" target="_blank">scikit-learn's TruncatedSVD transformer</a> to uncover topics, and the full code is available in this <a href="{{ page.codeexamples }}" target="_blank"> Jupyter notebook</a>.  The notebook contains more details about decisions made during the analysis.  The conclusion of this blog post has additional resources to explain these techniques.  
+Common words, bigrams (phrases with two words), and trigrams (phrases with three words) are uncovered by splitting the abstract title and abstract text into words (tokenizing) and counting the occurrences.  Additionally, topics are uncovered using Latent Semantic Analysis (LSA).  This analysis uses the <a href="https://www.nltk.org/" target="_blank">Natural Language Toolkit</a> for nGram processing, <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html" target="_blank">scikit-learn's TruncatedSVD transformer</a> to uncover concepts and topics, and the full code is available in this <a href="{{ page.codeexamples }}" target="_blank"> Jupyter notebook</a>.  The notebook contains more details about decisions made during the analysis.  The conclusion of this blog post has additional resources to explain the techniques used.  
 
 <h1 class="h4">Description of analysis</h1>
 I decided to deep dive into the Directorate Direct For Computer & Information Science & Engineering since my background is in computer science.  The mean Award Amount was calculated and the awards were divided into two groups by Award Amount: above average and below average.  For the two groups, the top twenty-five individual words, bigrams, and trigrams were determined for the Award Title and Award Abstract.  Additionally, the top 5 topics were uncovered for each group.
@@ -41,18 +41,18 @@ Overall, the word/phrase occurrences between the above average and below average
 Seeing the most common word occurrences this way, I am not able to understand the common technical topics in the Awards.  Next, I try topic modeling to uncover the five concepts and their associated topics.  Note that I assigned a concept title after interpreting the topics.
 
 These are the concepts for the above average Award Amounts:
-1. Teaching data science: data, science, learning, systems, data science, new, students, algorithms, software, models
-1. Data science plus materials science: materials, data science, data, mechanical, science, alloys, mechanical properties, composites, properties, interpretable
-1. Fluid flows: fluid, ibamr, multiphase, flows, fluid structure, manufacturing, energy, advanced, models, biological systems
-1. High performance computing: parallel, pabb, mpi, programming models, programming, compiler, runtime, productivity, parallel programming, global
-1. Data science plus fluid flows: data, data science, science, fluid, ibamr, multiphase, hub, hubs, fluid structure, flows
+1. **Teaching data science**: data, science, learning, systems, data science, new, students, algorithms, software, models
+1. **Data science plus materials science**: materials, data science, data, mechanical, science, alloys, mechanical properties, composites, properties, interpretable
+1. **Fluid flows**: fluid, ibamr, multiphase, flows, fluid structure, manufacturing, energy, advanced, models, biological systems
+1. **High performance computing**: parallel, pabb, mpi, programming models, programming, compiler, runtime, productivity, parallel programming, global
+1. **Data science plus fluid flows**: data, data science, science, fluid, ibamr, multiphase, hub, hubs, fluid structure, flows
 
 These are the concepts for the below average Award Amounts: 
-1. Teaching data science: data, science, learning, students, new, systems, algorithms, machine, data science, computing
-1. Data science at colleges: data science, data, science, holyoke, directorate, division, colleges, organizations, data revolution, revolution
-1. Identifying risks: risk, prism, materials, risks, hdr, critical risk, cris, systemic risk, data, systemic
-1. Epidemiology and public health: epidemiology, infectious, disease, computational, public health, response, concerns constraints, msml, msml networks, novel implementations
-1. Identifying risks, involving students: risk, prism, risks, conference, critical risk, systemic risk, cris, systemic, indicators, students
+1. **Teaching data science**: data, science, learning, students, new, systems, algorithms, machine, data science, computing
+1. **Data science at colleges**: data science, data, science, holyoke, directorate, division, colleges, organizations, data revolution, revolution
+1. **Identifying risks**: risk, prism, materials, risks, hdr, critical risk, cris, systemic risk, data, systemic
+1. **Epidemiology and public health**: epidemiology, infectious, disease, computational, public health, response, concerns constraints, msml, msml networks, novel implementations
+1. **Identifying risks, involving students**: risk, prism, risks, conference, critical risk, systemic risk, cris, systemic, indicators, students
    
 To decide on some of the concept titles, I had to check the data file and do some googling to get more information:
 * Holyoke is a city in Massachusetts, USA.  
@@ -68,7 +68,7 @@ Thinking about how to provide useful information to those applying for an Award,
 * Can text analysis uncover trends over time, perhaps finding the trending concepts in 2019? 
 
 <h1 class="h4">Conclusion</h1> 
-Check out this <a href="{{ page.codeexamples }}" target="_blank"> Jupyter notebook</a> for the code. These resources were espeically helpful to me:
+Check out this <a href="{{ page.codeexamples }}" target="_blank"> Jupyter notebook</a> for the code. These resources were espeicially helpful to me:
 * <a href="https://www.youtube.com/watch?v=BJ0MnawUpaU" target="_blank">Mike Bernico's explanation of LSA</a>
 * <a href="https://github.com/bendgame/kmeansChardonnay" target="_blank">Eric Kleppen's code to use NLP and k-means clustering for reviews</a>
 
