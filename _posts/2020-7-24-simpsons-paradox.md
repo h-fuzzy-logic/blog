@@ -32,7 +32,7 @@ When I looked at <a href="https://www.cdc.gov/covid-data-tracker/index.html#demo
  <img src="{{ site.baseurl }}/img/deaths-table.png" class="img-fluid" alt="Deaths in table format"/>
 
 <h1 class="h4">Conclusion</h1>
-I think these visualizations make it clearer that whites tend to be older, which explains why the "All Ages" percentages seem somewhat reasonable.  But once the data is stratified by age, it is much easier to see that minorities are impacted at a higher rate.  
+I think these visualizations make it clearer that whites tend to be older, which explains why the "All Ages" percentages seem somewhat reasonable.  But once the data is stratified by age, it is much easier to see that minorities are impacted at a higher rate.  Seeing that from ages 5-74 minorities make up 58% to 82% of deaths is alarming.  And now I can understand and believe the reports that minorities are impacted more by COVID.  
 
 
 
